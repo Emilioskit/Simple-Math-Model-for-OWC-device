@@ -10,12 +10,15 @@ rho_a = 1.225;          % Air density [kg/m^3]
 g = 9.81;               % Gravity [m/s^2]
 
 %Waves
-H = 1.5;                % Wave height [m]
-T = 4;                  % Wave period [s]
+H = 2;                % Wave height [m]
+T = 8;                  % Wave period [s]
 
 %Chamber and turbine parameters
-Ac_p = 10;                % Chamber cross-section area [m]normalized by 1 meter of 
-At_p = 1;                 % Turbine area [m]
+%RIGHT NOW IT HAS THE NORMALIZED VALUES FOR MUTRIKU
+%Diameter for turbine 750mm and 3,1 meters long the air chamber.
+
+Ac_p = 3.1;                % Chamber cross-section area [m]normalized by 1 meter of
+At_p = 0.1;                 % Turbine area [m] Also normalized
 Cp = 0.4;               % Power coefficient (typical Wells turbine)
 
 
@@ -43,7 +46,7 @@ P_wave = (rho_w * g^2 * H^2 * T) / (32 * pi);   % [W/m]
 fprintf('Theoritical wave power = %.2f W\n', P_wave)
 
 % --- ESTIMATED EFFICIENCY (dimensionless) ---
-eta = (P_mean / (P_wave * At_p))*100;   % efficiency in percentage
+eta = (P_mean / P_wave)*100;   % efficiency in percentage
 fprintf('Approx. OWC efficiency = %.3f\n', eta);
 
 % --- PLOTS ---
